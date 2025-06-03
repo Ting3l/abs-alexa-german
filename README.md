@@ -21,9 +21,17 @@ This fork aims to implement a german configuration for the project, so it can be
 - performs an an API "search" that is built-in to ABS
 - if this fails, pulls all books from library and then performs a fuzzy search (effective, but may be resource intensive on large libraries)
 
-## Installation:
-1) Fork this repo
-2) Edit the config.js file to include your **Audiobookshelf API key** and **server URL** (you can do this later in the 'Code' tab of Developer Console if using Alexa-hosted)
+## Installation (Alexa hosted):
+1) Follow the instructions here: https://developer.amazon.com/en-US/docs/alexa/hosted-skills/alexa-hosted-skills-git-import.html#import
+2) Set your skill invocation name
+3) Use the "Code" tab to edit config.js to include your **Audiobookshelf API key** and **server URL**
+4) (Optional) Change locale
+5) Save and deploy the skill
+6) If using Alexa-hosted, go to the 'Test' tab of Developer Console, and enable skill testing for 'Development'
+
+## Installation (local hosted):
+1) Fork this repo (and mark it private)
+2) Edit the config.js file to include your **Audiobookshelf API key** and **server URL**
 3) Follow the instructions here: https://developer.amazon.com/en-US/docs/alexa/hosted-skills/alexa-hosted-skills-git-import.html#import
 4) Set your skill invocation name and build the skill
 5) Save and deploy the skill
@@ -63,3 +71,10 @@ This fork aims to implement a german configuration for the project, so it can be
 - [ ] Add other intents, such as:
   - [ ] "Start the book over"
   - [ ] "Go to chapter 12"
+
+## Language Contribution:
+- Copy /skill-package/interactionModels/custom/en-US.json and edit the samples to reflect the locale you want to contribute.
+- Edit /skill-package/skill.json to include the new locale under manifest/publishingInformation/locales
+- Copy /lambda/locale/en-US.js and edit every string to reflect the new locale.
+  - If unsure about the usage of strings, open /lambda/index.js and search for ".speak" to find every time alexa is told to speak something.
+  - Maybe the new locale needs restructuring of the string construction - if you edit those, be sure to reflect the changes in all files under /lambda/locales/
