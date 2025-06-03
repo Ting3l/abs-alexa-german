@@ -1,0 +1,253 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "time",
+              "elicitationRequired": true,
+              "type": "AMAZON.DURATION",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.454140924019.1491668277531"
+              }
+            }
+          ],
+          "name": "GoBackXTimeIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "time",
+              "elicitationRequired": true,
+              "type": "AMAZON.DURATION",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1425758106737.86337652976"
+              }
+            }
+          ],
+          "name": "GoForwardXTimeIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "title",
+              "elicitationRequired": false,
+              "type": "AMAZON.Book",
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "author",
+              "elicitationRequired": false,
+              "type": "AMAZON.Author",
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "name": "PlayBookIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "chapterNumber",
+              "elicitationRequired": true,
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.464967230894.1040650485539"
+              }
+            }
+          ],
+          "name": "GoToChapterX",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "Verlassen",
+            "Abbrechen"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "HelloWorldIntent",
+          "samples": [
+            "Hallo",
+            "Test"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "PlayLastIntent",
+          "samples": [
+            "Spiel das letzte Buch",
+            "weiter",
+            "Ließ mir das letzte Buch vor",
+            "Ließ mir was vor"
+          ]
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "time",
+              "type": "AMAZON.DURATION",
+              "samples": [
+                "Spring {time} zurück",
+                "Spule {time} zurück",
+                "Gehe {time} zurück",
+                "{time} zurückspulen",
+                "{time} zurückgehen",
+                "{time} zurückspringen"
+              ]
+            }
+          ],
+          "name": "GoBackXTimeIntent",
+          "samples": [
+            "Spring {time} zurück",
+            "Spule {time} zurück",
+            "Gehe {time} zurück",
+            "{time} zurückspulen",
+            "{time} zurückgehen",
+            "{time} zurückspringen"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "time",
+              "type": "AMAZON.DURATION",
+              "samples": [
+                "Springe {time} vor"
+              ]
+            }
+          ],
+          "name": "GoForwardXTimeIntent",
+          "samples": [
+            "Springe {time} vor",
+            "Überspring {time}",
+            "Spul {time} vor",
+            "Spring {time} nach vorne",
+            "Gehe {time} vor",
+            "{time} vorwärts",
+            "{time} überspringen",
+            "{time} vorspulen"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "title",
+              "type": "AMAZON.Book"
+            },
+            {
+              "name": "author",
+              "type": "AMAZON.Author"
+            }
+          ],
+          "name": "PlayBookIntent",
+          "samples": [
+            "gib {title} von {author} wieder",
+            "ließ mir {title} vor",
+            "ließ mir {title} von {author} vor",
+            "{title}",
+            "{title} von {author}",
+            "{author} {title}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "chapterNumber",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "name": "GoToChapterX",
+          "samples": [
+            "Gehe zu Kapitel {chapterNumber}",
+            "spring zu Kapitel {chapterNumber}",
+            "Spule zu Kapitel {chapterNumber} zurück",
+            "Spule zu Kapitel {chapterNumber} vor"
+          ]
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        }
+      ],
+      "types": [],
+      "invocationName": "privates vorlesen"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Du kannst zum beispiel sagen gehe 15 sekunden zurück."
+          }
+        ],
+        "id": "Elicit.Slot.454140924019.1491668277531"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Du kannst zum beispiel sagen gehe 15 sekunden vor."
+          }
+        ],
+        "id": "Elicit.Slot.1425758106737.86337652976"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Du kannst zum beispiel sagen gehe zu kapitel fünf."
+          }
+        ],
+        "id": "Elicit.Slot.464967230894.1040650485539"
+      }
+    ]
+  }
+}
