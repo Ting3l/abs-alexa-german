@@ -413,7 +413,7 @@ const LaunchRequestHandler = {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speakOutput = 'Welcome to Audiobookshelf, you can say "play audiobook" to start listening.';
+    const speakOutput = 'Wilkommen bei Audiobookshelf.';
 
 
     console.log(" ~~~ LOGGED AT END OF LaunchRequestHandler ")
@@ -571,7 +571,7 @@ const PlayAudioIntentHandler = {
         //speakOutput = 'Resuming...';
       }
       else {
-        speakOutput = 'Playing ' + bookTitle + " by " + author;
+        speakOutput = bookTitle + " von " + author;
       }
       console.log("Playing: " + playUrl)
 
@@ -747,7 +747,7 @@ const PlaybackBookHandler = { // this handler is not currently used (has limitat
     console.log("Title: " + bookTitle)
     console.log("Author: " + author)
     if (!bookTitle) {
-      let speakOutput = 'I did not understand the request. For example, try saying "Play audiobook title by author".';
+      let speakOutput = 'Das habe ich nicht verstanden. Versuch es mit "Ließ mir Titel von Autor vor".';
       console.log("Book and/or author slot undefined")
       return handlerInput.responseBuilder
         .speak(speakOutput)
@@ -803,7 +803,7 @@ const PlaybackBookHandler = { // this handler is not currently used (has limitat
       });
       if (results[0].book.length == 0) {
         console.log("No book of title '" + bookTitle + "' found")
-        const speakOutput = "No book of title '" + bookTitle + "' found. Please try again.";
+        const speakOutput = "Kein Buch mit dem Titel '" + bookTitle + "' gefunden. Versuch es nochmal.";
         return handlerInput.responseBuilder
           .speak(sanitizeForSSML(speakOutput))
           .reprompt(sanitizeForSSML(speakOutput))
@@ -870,7 +870,7 @@ const PlaybackBookHandler = { // this handler is not currently used (has limitat
     // sync localSessionAttributes to sessionAttributes
     updateLocalSessionAttributes(sessionAttributes)
 
-    let speakOutput = 'Playing ' + userPlaySession.displayTitle + ' by ' + userPlaySession.displayAuthor;
+    let speakOutput = userPlaySession.displayTitle + ' von ' + userPlaySession.displayAuthor;
     console.log("Playing: " + playUrl)
 
     const chapterTitle = getCurrentChapterByBookTime(currentTime, userPlaySession).title
@@ -1142,7 +1142,7 @@ const PlayBookIntentHandler = {
 
     // require a book title (could later implement playing by author I suppose, maybe in another intent)
     if (!bookTitle) {
-      let speakOutput = 'I did not understand the request. For example, try saying "Play audiobook title by author".';
+      let speakOutput = 'Das habe ich nicht verstanden. Versuch es mit "Ließ mir Titel von Autor vor".';
       console.log("Book and/or author slot undefined")
       return handlerInput.responseBuilder
         .speak(speakOutput)
@@ -1365,7 +1365,7 @@ const PlayBookIntentHandler = {
     }
     else {
       console.log("Could not find a playable book (" + rawTitle + " by " + rawAuthor + ")")
-      let speakOutput = "Could not find a playable book matching: " + rawTitle + " by " + rawAuthor + ". Please try again."
+      let speakOutput = "Ich habe kein entsprechendes Buch gefunden: " + rawTitle + " von " + rawAuthor + ". Versuch es nochmal."
       return handlerInput.responseBuilder
         .speak(sanitizeForSSML(speakOutput))
         .reprompt(sanitizeForSSML(speakOutput))
@@ -1428,7 +1428,7 @@ const PlayBookIntentHandler = {
     // sync localSessionAttributes to sessionAttributes
     updateLocalSessionAttributes(sessionAttributes)
 
-    let speakOutput = 'Playing ' + userPlaySession.displayTitle + ' by ' + userPlaySession.displayAuthor;
+    let speakOutput = userPlaySession.displayTitle + ' von ' + userPlaySession.displayAuthor;
     console.log("Playing: " + playUrl)
 
 
@@ -2061,7 +2061,7 @@ const UnsupportedAudioIntentHandler = {
       );
   },
   async handle(handlerInput) {
-    const speakOutput = 'Sorry, I can\'t support that yet.';
+    const speakOutput = 'Entschuldige, das kann ich noch nicht.';
 
     return handlerInput.responseBuilder
       .speak(sanitizeForSSML(speakOutput))
@@ -2075,7 +2075,7 @@ const HelpIntentHandler = {
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speakOutput = 'You can say "play audio" to start playing your book! How can I help?';
+    const speakOutput = 'Du kannst sagen "Ließ mir etwas vor" - wie kann ich helfen?';
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -2095,7 +2095,7 @@ const CancelAndStopIntentHandler = {
         || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
   },
   handle(handlerInput) {
-    const speakOutput = 'Goodbye!';
+    const speakOutput = 'Bis zum nächsten mal!';
 
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes()
     const userPlaySession = sessionAttributes.userPlaySession
@@ -2663,7 +2663,7 @@ const FallbackIntentHandler = {
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
   },
   handle(handlerInput) {
-    const speakOutput = 'Sorry, I don\'t know about that. Please try again.';
+    const speakOutput = 'Entschuldige, das weiß ich nicht. Versuch es nochmal.';
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -2749,7 +2749,7 @@ const IntentReflectorHandler = {
   },
   handle(handlerInput) {
     const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
-    const speakOutput = `You just triggered ${intentName}`;
+    const speakOutput = `Du hast gerade ${intentName} ausgelöst.`;
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -2767,7 +2767,7 @@ const ErrorHandler = {
     return true;
   },
   handle(handlerInput, error) {
-    const speakOutput = 'Sorry, I had trouble doing what you asked. Please try again.';
+    const speakOutput = 'Entschuldige, ich hatte ein Problem dabei. Versuch es nochmal.';
     console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
     return handlerInput.responseBuilder
