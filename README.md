@@ -4,6 +4,8 @@
 
 This is an Alexa Skill that can be used to control your personal Audiobookshelf server.
 
+This fork aims to implement a german configuration for the project, so it can be run by devices with german locale.
+
 ## Requirements:
 1. Publicly reachable Audiobookshelf server
 2. Amazon Developer account (free)
