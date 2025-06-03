@@ -23,6 +23,24 @@ let localSessionAttributes = {
 
 const { localeconf, ABS_API_KEY, SERVER_URL, CFAccessClientId, CFAccessClientSecret } = require('./config.js');
 // const { off, title } = require('process');
+const { 
+  SpeakWelcome,
+  SpeakPlaying,
+  SpeakBy,
+  SpeakTryAgain,
+  SpeakPlaybackBookHandlerNoBookTitle,
+  SpeakPlaybackBookHandlerNoBookFoundP1,
+  SpeakPlaybackBookHandlerNoBookFoundP2,
+  SpeakPlayBookIntentHandlerNoBookTitle,
+  SpeakPlayBookIntentHandlerNoBookFound,
+  SpeakUnsupportedAudioIntentHandler,
+  SpeakHelpIntentHandler,
+  SpeakCancelAndStopIntentHandlerGoodbye,
+  SpeakFallbackIntentHandler,
+  SpeakIntentReflectorHandlerP1,
+  SpeakIntentReflectorHandlerP2,
+  SpeakErrorHandler
+} = require('./locale/'+localeconf+'.js');
 
 const baseheaders = {
   "Content-Type": 'application/json',
