@@ -46,6 +46,18 @@
           "keywords": [],
           "name": "Audiobookshelf",
           "summary": "Play audiobooks from self-hosted Audiobookshelf server"
+        },
+        "de-DE": {
+          "description": "Angepasster Skill zur wiedergabe von Dateien aus einer öffentlichen, privaten Audiobookshelf-Instanz",
+          "examplePhrases": [
+            "Weiter",
+            "Ließ mir etwas vor",
+            "Ließ mir Der Herr der Ringe von J.R.R. Tolkien vor",
+            "Spule 30 Sekunden vor"
+          ],
+          "keywords": [],
+          "name": "Audiobookshelf",
+          "summary": "Gib Hörbücher vom selbst gehosteten Audiobookshelf-Server wieder."
         }
       },
       "testingInstructions": "Sample Testing Instructions."
