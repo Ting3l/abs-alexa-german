@@ -23,7 +23,7 @@ let localSessionAttributes = {
 
 const { localeconf, ABS_API_KEY, SERVER_URL, CFAccessClientId, CFAccessClientSecret } = require('./config.js');
 // const { off, title } = require('process');
-let localefile = './locale/' + localeconf + '.js'
+const localefile = './locale/' + localeconf + '.js'
 const { 
   SpeakWelcome,
   SpeakPlaying,
@@ -590,7 +590,7 @@ const PlayAudioIntentHandler = {
         //speakOutput = 'Resuming...';
       }
       else {
-        speakOutput = bookTitle + " " + SpeakBy + " " + author;
+        speakOutput = SpeakPlaying + bookTitle + " " + SpeakBy + " " + author;
       }
       console.log("Playing: " + playUrl)
 
