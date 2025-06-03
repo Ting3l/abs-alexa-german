@@ -21,7 +21,7 @@ let localSessionAttributes = {
 //const ddbAdapter = require('ask-sdk-dynamodb-persistence-adapter');
 // const Util = require('./util.js');
 
-const { ABS_API_KEY, SERVER_URL, CFAccessClientId, CFAccessClientSecret } = require('./config.js');
+const { localeconf, ABS_API_KEY, SERVER_URL, CFAccessClientId, CFAccessClientSecret } = require('./config.js');
 // const { off, title } = require('process');
 
 const baseheaders = {
