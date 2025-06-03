@@ -23,6 +23,7 @@ let localSessionAttributes = {
 
 const { localeconf, ABS_API_KEY, SERVER_URL, CFAccessClientId, CFAccessClientSecret } = require('./config.js');
 // const { off, title } = require('process');
+let localefile = './locale/' + localeconf + '.js'
 const { 
   SpeakWelcome,
   SpeakPlaying,
@@ -40,7 +41,7 @@ const {
   SpeakIntentReflectorHandlerP1,
   SpeakIntentReflectorHandlerP2,
   SpeakErrorHandler
-} = require('./locale/'+localeconf+'.js');
+} = require(localefile);
 
 const baseheaders = {
   "Content-Type": 'application/json',
